@@ -1,9 +1,9 @@
+let n = 0
 basic.showIcon(IconNames.Yes)
 datalogger.setColumnTitles(
 "L",
 "X"
 )
-let n = 0
 basic.forever(function () {
     datalogger.log(
     datalogger.createCV("L", input.lightLevel()),
