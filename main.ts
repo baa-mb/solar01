@@ -1,3 +1,4 @@
+let abstand = 0
 let n = 0
 basic.showIcon(IconNames.Yes)
 datalogger.setColumnTitles(
@@ -14,9 +15,11 @@ basic.forever(function () {
     basic.pause(2000)
     basic.showString("SOLAR")
     n += 1
-    basic.showNumber(sonar.ping(
+    abstand = sonar.ping(
     DigitalPin.P0,
     DigitalPin.P1,
     PingUnit.Centimeters
-    ))
+    )
+    basic.showNumber(abstand)
+    pins.analogWritePin(AnalogPin.P2, Math.map(abstand, 1, 15, 300, 800))
 })
